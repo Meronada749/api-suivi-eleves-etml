@@ -1,0 +1,22 @@
+meta {
+  name: Ajouter un nouvel élève
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:3333/students
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "Essayas",
+    "firstname": "Meron"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
