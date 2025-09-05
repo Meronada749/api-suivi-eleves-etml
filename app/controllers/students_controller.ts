@@ -5,8 +5,11 @@ export default class StudentsController {
   /**
    * Display a list of resource
    */
-  async index({}: HttpContext) {
-    return await Student.query().orderBy('name').orderBy('firstname')
+  async index({ response }: HttpContext) {
+    const students = await Student.query().orderBy('name').orderBy('firstname')
+
+    // Retourne un statut HTTP 200
+    return response.ok(students)
   }
 
   /**
@@ -14,12 +17,13 @@ export default class StudentsController {
    * POST /students
    * INSERT INTO students (name, firstname, age) VALUES ('Doe', 'John', 20);
    */
-  async store({ request }: HttpContext) {
+  async store({ request, response }: HttpContext) {
     // Récupération des données envoyées par le client
     // On utilise `request.only` pour ne récupérer que les champs nécessaires
     const student = request.only(['name', 'firstname'])
     // Création d'un nouvel élève avec les données récupérées
-    return await Student.create(student)
+    const s = await Student.create(student)
+    return response.created(s)
   }
 
   /**
