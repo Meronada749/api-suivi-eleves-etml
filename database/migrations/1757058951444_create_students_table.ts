@@ -7,7 +7,6 @@ export default class extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
 
-      // Ajout des colonnes name et firstname
       table.string('name').notNullable()
       table.string('firstname').notNullable()
 
