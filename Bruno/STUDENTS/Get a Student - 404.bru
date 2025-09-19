@@ -1,0 +1,15 @@
+meta {
+  name: Get a Student - 404
+  type: http
+  seq: 4
+}
+
+get {
+  url: http://localhost:3333/students/100
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

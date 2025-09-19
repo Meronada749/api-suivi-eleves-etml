@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "CLASS_GROUPS",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

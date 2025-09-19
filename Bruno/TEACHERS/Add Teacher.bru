@@ -1,0 +1,23 @@
+meta {
+  name: Add Teacher
+  type: http
+  seq: 5
+}
+
+post {
+  url: http://localhost:3333/teachers
+  body: json
+  auth: inherit
+}
+
+body:json {
+     {
+      "name": "Norway",
+      "firstname": "Active",
+      "email": "B29@hotmail.com"
+     }
+}
+
+settings {
+  encodeUrl: true
+}

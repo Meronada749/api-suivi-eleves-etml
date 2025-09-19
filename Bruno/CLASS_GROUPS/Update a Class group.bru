@@ -1,0 +1,21 @@
+meta {
+  name: Update a Class group
+  type: http
+  seq: 6
+}
+
+put {
+  url: http://localhost:3333/class_groups/1
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "Dev"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

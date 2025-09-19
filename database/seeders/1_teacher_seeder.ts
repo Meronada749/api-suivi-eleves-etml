@@ -1,10 +1,10 @@
 import { BaseSeeder } from '@adonisjs/lucid/seeders'
-import { StudentFactory } from '#database/factories/student_factory'
+import { TeacherFactory } from '#database/factories/teacher_factory'
 
-export default class StudentSeeder extends BaseSeeder {
+export default class extends BaseSeeder {
   public async run() {
     // Write your database queries inside the run method
     // Crée 10 étudiants
-    await StudentFactory.createMany(10)
+    await TeacherFactory.createMany(10)
   }
 }

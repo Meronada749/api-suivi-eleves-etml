@@ -1,0 +1,21 @@
+meta {
+  name: Add Class group
+  type: http
+  seq: 5
+}
+
+post {
+  url: http://localhost:3333/class_groups
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "Class Dev"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

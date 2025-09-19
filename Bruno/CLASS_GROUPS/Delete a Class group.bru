@@ -1,0 +1,21 @@
+meta {
+  name: Delete a Class group
+  type: http
+  seq: 7
+}
+
+delete {
+  url: http://localhost:3333/class_groups/1
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "Focus"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

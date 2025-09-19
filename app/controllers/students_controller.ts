@@ -16,6 +16,18 @@ export default class StudentsController {
   /**
    * Ajouter d'un élève
    */
+  // async store({ request, response }: HttpContext) {
+  //   // Récupération des données envoyées par le client
+  //   // On utilise `request.only` pour ne récupérer que les champs nécessaires
+  //   const student = request.only(['name', 'firstname'])
+  //   // Création d'un nouvel élève avec les données récupérées
+  //   const s = await Student.create(student)
+  //   return response.created(s)
+  // }
+
+  /**
+   * Ajouter d'un élève
+   */
   async store({ request, response }: HttpContext) {
     // Récupération des données envoyées par le client et validation des données
     const { name, firstname } = await request.validateUsing(studentValidator)
@@ -41,21 +53,22 @@ export default class StudentsController {
    */
   async update({ params, request }: HttpContext) {
     // Récupération des données
-    const data = request.only(['name', 'firstname'])
+    const { name, firstname } = await request.validateUsing(studentValidator)
+
     // Vérification de l'existence de l'élève
     const student = await Student.findOrFail(params.id)
+
+    const data = { name, firstname }
+
     // Mise à jour des données de l'élève
     student.merge(data)
+
     // Sauvegarde des modifications
     await student.save()
+
     // Retour le json de l'élève mis à jour
     return student
   }
-
-  /**
-   * Edit individual record
-   */
-  //async edit({ params }: HttpContext) {}
 
   /**
    * Supprimer un élève
@@ -67,3 +80,6 @@ export default class StudentsController {
     return await student.delete()
   }
 }
+
+//{ params, response }: HttpContext
+//{ request, response }: HttpContext

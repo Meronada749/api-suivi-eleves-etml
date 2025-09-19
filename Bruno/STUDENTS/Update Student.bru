@@ -1,0 +1,21 @@
+meta {
+  name: Update Student
+  type: http
+  seq: 6
+}
+
+put {
+  url: http://localhost:3333/students/2
+  body: json
+  auth: inherit
+}
+
+body:json {
+   {   
+     "name": "Focus"
+   }
+}
+
+settings {
+  encodeUrl: true
+}

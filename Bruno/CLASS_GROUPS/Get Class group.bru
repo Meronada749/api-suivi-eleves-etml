@@ -1,0 +1,15 @@
+meta {
+  name: Get Class group
+  type: http
+  seq: 1
+}
+
+get {
+  url: http://localhost:3333/class_groups
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
