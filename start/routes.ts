@@ -11,6 +11,7 @@ import router from '@adonisjs/core/services/router'
 import StudentsController from '#controllers/students_controller'
 import TeachersController from '#controllers/teachers_controller'
 import ClassGroupsController from '#controllers/class_groups_controller'
+import CommentsController from '#controllers/comments_controller'
 
 router.get('test', async () => {
   return 'API is working!'
@@ -19,6 +20,13 @@ router.get('test', async () => {
 router.resource('students', StudentsController).apiOnly()
 router.resource('teachers', TeachersController).apiOnly()
 router.resource('class_groups', ClassGroupsController).apiOnly()
+// Routes imbriquées sur les commentaires
+// pour le CRUD /students/:student_id/comments
+router
+  .group(() => {
+    router.resource('comments', CommentsController).apiOnly()
+  })
+  .prefix('students/:student_id')
 
 /* est équivalent à : 
 router

@@ -8,7 +8,10 @@ export default class extends BaseSeeder {
     const teachers = await Teacher.all()
 
     await ClassGroup.createMany([
-      { name: 'CIN1A', teacherId: teachers[0].id },
+      {
+        name: 'CIN1A',
+        teacherId: teachers[0].id,
+      },
       { name: 'CIN1B', teacherId: teachers[0].id },
       { name: 'CIN1C', teacherId: teachers[1].id },
       { name: 'FID1', teacherId: teachers[1].id },
